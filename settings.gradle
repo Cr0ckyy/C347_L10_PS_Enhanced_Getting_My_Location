@@ -1,0 +1,2 @@
+rootProject.name = "C347_L10_PS Enhanced Getting My Location"
+include ':app'
