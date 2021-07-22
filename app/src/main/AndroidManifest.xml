@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.myapplicationdev.c347_l10_psenhancedgettingmylocation">
+
+    <!--    1•	android.permission.WRITE_EXTERNAL_STORAGE - Allows the API to cache map tile data-->
+    <!--    in the device's external storage area.-->
+    <!--    2•	android.permission.ACCESS_FINE_LOCATION - Allows the API to use the -->
+    <!--    Global Positioning System (GPS) to determine the device's location to within a very small area.-->
+    <!--    3•	android.permission.ACCESS_COARSE_LOCATION - Allows the API to use Wi-Fi -->
+    <!--    or mobile cell data (or both) to determine the device's location.-->
+    <!--    4•	android.permission.ACCESS_LOCATION_EXTRA_COMMANDS - Allows an application to access-->
+    <!--    extra location provider commands-->
+    <!--    5•	android.permission.ACCESS_NETWORK_STATE - Allows the API to check -->
+    <!--    the connection status in order to determine whether data can be downloaded.-->
+    <!--    6•	android.permission.INTERNET - Used by the API to download map tiles-->
+    <!--    from Google Maps servers.-->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -8,7 +30,34 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.C347_L10_PSEnhancedGettingMyLocation">
+        android:theme="@style/Theme.C347_L10_PSEnhancedGettingMyLocation"
+
+
+        tools:ignore="AllowBackup">
+
+
+        <service
+            android:name=".DetectorService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name=".MusicService"
+            android:enabled="true"
+            android:exported="false" />
+
+
+        <!--       TODO 5.Add your API key generated earlier into the AndroidManifest.xml as shown below.-->
+        <!--        It will be used to authenticate the access to the Google Maps services.-->
+
+        <!--TODO: meta-data is placed inside of the application-->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCNOQxgZ341kOqIOw3qG6sXRtWQBOWoye8" />
+
+        <!--TODO: new Activity being added-->
+        <activity android:name=".RecordsActivity" />
+
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
